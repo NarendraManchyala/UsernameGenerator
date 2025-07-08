@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Generate a Username</h1>
+    <form method="POST">
+        <label>Select a style:</label><br>
+        <select name="choice" required onchange="showFields(this.value)">
+            <option value="">-- Choose --</option>
+            <option value="1">Professional</option>
+            <option value="2">Gamer</option>
+            <option value="3">Fun</option>
+            <option value="4">Anonymous</option>
+        </select><br><br>
+
+        <div id="nameFields">
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="text" name="nick_name" placeholder="Nickname">
+        </div><br>
+
+        <input type="submit" value="Generate Username">
+    </form>
+
+    {% if username %}
+        <h2>Your Generated Username: {{ username }}</h2>
+    {% endif %}
+    <button onclick="copyUsername()">Copy</button>
+
+    <script>
+        function showFields(choice) {
+            const nameFields = document.getElementById('nameFields');
+            nameFields.style.display = 'block';
+
+            // Hide/show based on choice if needed
+        }
+        function copyUsername() {
+            const text = document.getElementById('generated-username').innerText;
+            navigator.clipboard.writeText(text);
+            alert("Username copied!");
+        }
+    </script>
+    <button onclick="copyUsername()"></button>
+</body>
+</html>

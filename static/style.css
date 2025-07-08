@@ -1,0 +1,84 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    background-image: url('/static/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    padding: 40px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: #1a73e8;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);  /* Semi-transparent white for readability */
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+label, select, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+input[type="text"],
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #1a73e8;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0c59c7;
+}
+
+h2 {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    padding: 15px;
+    border-left: 6px solid #0c59c7;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+::placeholder {
+    color: #999;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    form {
+        padding: 20px;
+    }
+}
