@@ -1,4 +1,4 @@
-# My Python Project check the Username Generator : To https://github.com/NarendraManchyala/UsernameGenerator.git
+# My Python Project check the Username Generator : https://usernamegenerator.onrender.com/
 
 This is a Python beginner friendly  project to gain experience on python
 ## 📁 Project Structure
