@@ -3,10 +3,10 @@
 <head>
     <title>Username Generator</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 <body>
     <h1>Generate a Username</h1>
+
     <form method="POST">
         <label>Select a style:</label><br>
         <select name="choice" required onchange="showFields(this.value)">
@@ -17,33 +17,49 @@
             <option value="4">Anonymous</option>
         </select><br><br>
 
-        <div id="nameFields">
-            <input type="text" name="first_name" placeholder="First Name">
-            <input type="text" name="last_name" placeholder="Last Name">
-            <input type="text" name="nick_name" placeholder="Nickname">
+        <div>
+        <div id="first_name_field" class = "input-field">
+            <input type="text" id = "first_name" name="first_name" placeholder="First Name">
+        </div>
+        <div id = "last_name_field" class = "input-field">
+            <input type="text" id = "last_name" name="last_name" placeholder="Last Name">
+        </div>
+        <div id = "nick_name_field" class = "input-field">
+            <input type="text" id = "nick_name" name="nick_name" placeholder="Nick name">
+        </div>
         </div><br>
 
         <input type="submit" value="Generate Username">
     </form>
 
     {% if username %}
-        <h2>Your Generated Username: {{ username }}</h2>
+        <h2>Your Generated Username: <span id="username">{{ username }}</span></h2>
+        <button onclick="copyUsername()">Copy to Clipboard</button>
     {% endif %}
-    <button onclick="copyUsername()">Copy</button>
 
     <script>
         function showFields(choice) {
-            const nameFields = document.getElementById('nameFields');
-            nameFields.style.display = 'block';
-
-            // Hide/show based on choice if needed
+            const firstField = document.getElementById('first_name_field')
+            const lastField = document.getElementById('last_name_field')
+            const nickField = document.getElementById('nick_name_field')
+            firstField.classList.remove('show')
+            lastField.classList.remove('show')
+            nickField.classList.remove('show')
+            if (choice == "1") {
+                firstField.classList.add('show')
+                lastField.classList.add('show')
+            } else if (choice == "2") {
+                nickField.classList.add('show')
+            } else if (choice == "3") {
+            }
         }
+
         function copyUsername() {
-            const text = document.getElementById('generated-username').innerText;
-            navigator.clipboard.writeText(text);
-            alert("Username copied!");
+            const text = document.getElementById("username").innerText;
+            navigator.clipboard.writeText(text)
+              .then(() => alert("Username copied to clipboard!"))
+              .catch(err => alert("Failed to copy: " + err));
         }
     </script>
-    <button onclick="copyUsername()"></button>
 </body>
 </html>
