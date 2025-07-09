@@ -31,11 +31,17 @@
 
         <input type="submit" value="Generate Username">
     </form>
-
-    {% if username %}
-        <h2>Your Generated Username: <span id="username">{{ username }}</span></h2>
-        <button onclick="copyUsername()">Copy to Clipboard</button>
-    {% endif %}
+    {% if usernames %}
+    <h2>Your Generated Usernames:</h2>
+        <div class="username-container">
+            {% for name in usernames %}
+        <div class="username-box">
+        <span class="username" id="username{{ loop.index }}">{{ name }}</span><br>
+        <button onclick="copyUsername('username{{ loop.index }}')">Copy</button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 
     <script>
         function showFields(choice) {
@@ -54,8 +60,8 @@
             }
         }
 
-        function copyUsername() {
-            const text = document.getElementById("username").innerText;
+        function copyUsername(id) {
+            const text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text)
               .then(() => alert("Username copied to clipboard!"))
               .catch(err => alert("Failed to copy: " + err));

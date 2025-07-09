@@ -1,5 +1,3 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
@@ -72,9 +70,60 @@ h2 {
 ::placeholder {
     color: #999;
 }
-    #firstName, #lastName, #nickName {
-    display: none;
-    }
+
+.input-field {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.input-field.show {
+    opacity: 1;
+    max-height: 100px;
+}
+
+.username-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.username-box {
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    max-width: 300px;
+    text-align: center;
+    flex: 1 1 200px;
+}
+
+.username-box .username {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.username-box button {
+    padding: 6px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.username-box button:hover {
+    background-color: #3e8e41;
+}
 
 @media (max-width: 600px) {
     body {
@@ -84,14 +133,4 @@ h2 {
     form {
         padding: 20px;
     }
-}
-.input-field {
-    opacity : 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
-}
-.input-field.show {
-    opacity: 1;
-    max-height: 100px;
 }
